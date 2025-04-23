@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Activity, Brain, BookOpen, MessageCircle, User, Heart, Menu, X } from "lucide-react";
+import { Activity, Brain, BookOpen, MessageCircle, User, Heart, Menu, X, BookA, Globe } from "lucide-react";
 
 export function MainNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,7 +33,7 @@ export function MainNavigation() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Лабиринт знаний</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
+                  <div className="grid w-[500px] gap-3 p-4 md:grid-cols-2">
                     <Link to="/systems/cardiovascular" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
                       <Heart className="h-5 w-5 text-rose-500" />
                       <div>
@@ -46,6 +46,20 @@ export function MainNavigation() {
                       <div>
                         <div className="font-medium">Нервная система</div>
                         <div className="text-sm text-muted-foreground">Мозг и нервы</div>
+                      </div>
+                    </Link>
+                    <Link to="/systems/digestive" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <Activity className="h-5 w-5 text-orange-500" />
+                      <div>
+                        <div className="font-medium">Пищеварительная</div>
+                        <div className="text-sm text-muted-foreground">Органы пищеварения</div>
+                      </div>
+                    </Link>
+                    <Link to="/systems/respiratory" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <Activity className="h-5 w-5 text-blue-500" />
+                      <div>
+                        <div className="font-medium">Дыхательная</div>
+                        <div className="text-sm text-muted-foreground">Лёгкие и дыхание</div>
                       </div>
                     </Link>
                   </div>
@@ -62,9 +76,39 @@ export function MainNavigation() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/blog" className={navigationMenuTriggerStyle()}>
-                  Блог
-                </Link>
+                <NavigationMenuTrigger>Информация</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
+                    <Link to="/blog" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <Globe className="h-5 w-5 text-green-500" />
+                      <div>
+                        <div className="font-medium">Блог</div>
+                        <div className="text-sm text-muted-foreground">Статьи о медицине</div>
+                      </div>
+                    </Link>
+                    <Link to="/dictionary" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <BookA className="h-5 w-5 text-indigo-500" />
+                      <div>
+                        <div className="font-medium">Словарь</div>
+                        <div className="text-sm text-muted-foreground">Медицинские термины</div>
+                      </div>
+                    </Link>
+                    <Link to="/forum" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <MessageCircle className="h-5 w-5 text-amber-500" />
+                      <div>
+                        <div className="font-medium">Форум</div>
+                        <div className="text-sm text-muted-foreground">Общение с сообществом</div>
+                      </div>
+                    </Link>
+                    <Link to="/consultations" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+                      <User className="h-5 w-5 text-blue-500" />
+                      <div>
+                        <div className="font-medium">Консультации</div>
+                        <div className="text-sm text-muted-foreground">Помощь врачей</div>
+                      </div>
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -112,8 +156,20 @@ export function MainNavigation() {
               <span className="font-medium">Медицинские кейсы</span>
             </Link>
             <Link to="/blog" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
-              <MessageCircle className="h-5 w-5 text-amber-500" />
+              <Globe className="h-5 w-5 text-green-500" />
               <span className="font-medium">Блог</span>
+            </Link>
+            <Link to="/dictionary" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+              <BookA className="h-5 w-5 text-indigo-500" />
+              <span className="font-medium">Словарь</span>
+            </Link>
+            <Link to="/forum" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+              <MessageCircle className="h-5 w-5 text-amber-500" />
+              <span className="font-medium">Форум</span>
+            </Link>
+            <Link to="/consultations" className="flex items-center gap-2 p-2 hover:bg-slate-100 rounded-md">
+              <User className="h-5 w-5 text-blue-500" />
+              <span className="font-medium">Консультации</span>
             </Link>
             <div className="pt-2 flex gap-2">
               <Link to="/login" className="flex-1">

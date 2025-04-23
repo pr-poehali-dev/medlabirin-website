@@ -1,10 +1,18 @@
 
-import { Brain, BookOpen, MessageCircle, Award, Globe, Bookmark } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Brain, BookOpen, MessageCircle, Award, Globe, Bookmark, Stethoscope, Users } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export function FeatureCards() {
   const features = [
+    {
+      icon: <Award className="h-12 w-12 text-amber-500" />,
+      title: "Лабиринт знаний",
+      description: "Проходите увлекательные уровни по системам органов, решайте головоломки и получайте награды за свои достижения.",
+      action: "Начать прохождение",
+      link: "/systems"
+    },
     {
       icon: <Brain className="h-12 w-12 text-purple-500" />,
       title: "3D-атлас анатомии",
@@ -20,32 +28,39 @@ export function FeatureCards() {
       link: "/cases"
     },
     {
-      icon: <MessageCircle className="h-12 w-12 text-green-500" />,
-      title: "Консультации врачей",
-      description: "Задавайте вопросы квалифицированным специалистам и получайте профессиональные ответы.",
-      action: "Получить консультацию",
-      link: "/consultations"
-    },
-    {
-      icon: <Award className="h-12 w-12 text-amber-500" />,
-      title: "Лабиринт знаний",
-      description: "Проходите увлекательные уровни, решайте головоломки и получайте награды за свои достижения.",
-      action: "Начать прохождение",
-      link: "/systems"
-    },
-    {
-      icon: <Globe className="h-12 w-12 text-rose-500" />,
+      icon: <Globe className="h-12 w-12 text-green-500" />,
       title: "Научно-популярный блог",
-      description: "Читайте актуальные статьи о медицине, здоровье и последних научных открытиях.",
+      description: "Читайте актуальные статьи о медицине, здоровье и последних научных открытиях от профессиональных авторов.",
       action: "Читать статьи",
       link: "/blog"
     },
     {
-      icon: <Bookmark className="h-12 w-12 text-indigo-500" />,
+      icon: <Users className="h-12 w-12 text-rose-500" />,
+      title: "Форум сообщества",
+      description: "Общайтесь с единомышленниками, задавайте вопросы, делитесь опытом и находите новых друзей.",
+      action: "Присоединиться",
+      link: "/forum"
+    },
+    {
+      icon: <Stethoscope className="h-12 w-12 text-indigo-500" />,
+      title: "Консультации врачей",
+      description: "Получайте квалифицированные ответы на ваши вопросы от практикующих специалистов разных направлений.",
+      action: "Получить консультацию",
+      link: "/consultations"
+    },
+    {
+      icon: <Bookmark className="h-12 w-12 text-cyan-500" />,
       title: "Медицинский словарь",
       description: "Обширная база терминов с понятными объяснениями для лучшего понимания медицинской информации.",
       action: "Открыть словарь",
       link: "/dictionary"
+    },
+    {
+      icon: <MessageCircle className="h-12 w-12 text-yellow-500" />,
+      title: "Личный кабинет",
+      description: "Отслеживайте свой прогресс обучения, сохраняйте интересные материалы и управляйте подписками.",
+      action: "Войти в кабинет",
+      link: "/profile"
     }
   ];
 
@@ -59,7 +74,7 @@ export function FeatureCards() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {features.map((feature, index) => (
             <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
@@ -71,7 +86,7 @@ export function FeatureCards() {
               </CardHeader>
               <CardFooter>
                 <Button asChild variant="outline" className="w-full">
-                  <a href={feature.link}>{feature.action}</a>
+                  <Link to={feature.link}>{feature.action}</Link>
                 </Button>
               </CardFooter>
             </Card>
